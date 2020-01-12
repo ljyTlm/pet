@@ -1,0 +1,84 @@
+swagger: "2.0"
+info:
+  description: "这里用于前后端统一规范"
+  version: "1.0.0"
+  title: "铭宠电商平台 Api文档"
+  contact:
+    email: "tlm@163.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost"
+basePath: "/v2"
+tags:
+  - name: "账号管理"
+    description: "账号的操作包括登录等 Api"
+  - name: "待定1"
+    description: "待定1"
+  - name: "待定2"
+    description: "待定2"
+schemes:
+  - "https"
+  - "http"
+
+paths:
+  /account:
+    post:
+      tags:
+        - "账号管理"
+      summary: "添加一个用户"
+      description: "方法的详细描述"
+      operationId: addUser
+      consumes:
+        - "application/json"
+        - "application/xml"
+      produces:
+        - "application/xml"
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "参数的详细描述"
+          required: true
+          schema:
+            $ref: "#/definitions/TUser"
+      responses:
+        405:
+          description: "Invalid input"
+
+
+definitions:
+  TUser:
+    # 用户信息
+    type: "object"
+    description: "用户信息"
+    # 必要参数
+    required:
+      - name
+      - password
+      - typeId
+    properties:
+      id:
+        type: "integer"
+        format: "int32"
+        description: "帐号 Id"
+        readOnly: true
+      name:
+        type: "string"
+        description: "登录帐号名"
+      password:
+        type: "string"
+        description: "密码，在 Response 里返回 null"
+      gender:
+        type: "string"
+        description: "性别"
+      age:
+        type: "int32"
+        description: "年龄"
+      phone:
+        type: "string"
+        description: "手机号码"
+      typeId:
+        type: "int32"
+        description: "账户类型"
+

@@ -13,10 +13,10 @@ import org.springframework.data.relational.core.mapping.Table;
 public class User {
   @Id
   Integer id;
+  String name;
   String password;
   String gender;
   Integer age;
-  String name;
   String phone;
   Integer typeId;
   Integer source;
