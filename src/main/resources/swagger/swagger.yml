@@ -72,12 +72,17 @@ definitions:
         type: "string"
         description: "性别"
       age:
-        type: "int32"
+        type: "integer"
+        format: "int32"
         description: "年龄"
       phone:
         type: "string"
         description: "手机号码"
       typeId:
-        type: "int32"
+        type: "integer"
+        format: "int32"
         description: "账户类型"
-
+      source:
+        type: "integer"
+        format: "int32"
+        description: "账户类型"

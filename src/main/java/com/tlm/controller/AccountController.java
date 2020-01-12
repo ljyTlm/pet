@@ -42,4 +42,13 @@ public class AccountController {
     System.out.println(tUser);
     return accountService.addUser(tUser);
   }
+
+  @ApiOperation(value="获取一个用户信息",tags={""},notes="",response = TUser.class)
+  @ApiResponses(value =    {
+      @ApiResponse(code = 200, message = "添加成功", response = TUser.class) })
+  @PostMapping("/get")
+  public TUser getUser(@ApiParam(value = "要添加的用户" ,required=true )  @Valid @RequestBody TUser tUser) {
+    System.out.println(tUser);
+    return accountService.getUser(tUser.getId());
+  }
 }

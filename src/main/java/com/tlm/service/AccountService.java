@@ -26,4 +26,16 @@ public class AccountService {
     tUser.setId(user.getId());
     return tUser;
   }
+
+  public TUser getUser(Integer userId) {
+    User user = userRepository.findById(userId).orElse(null);
+    TUser tUser = new TUser();
+    tUser.setId(userId);
+    tUser.setName(user.getName());
+    tUser.setPhone(user.getPhone());
+    tUser.setSource(user.getSource());
+    tUser.setGender(user.getGender());
+    tUser.setAge(user.getAge());
+    return tUser;
+  }
 }
