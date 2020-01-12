@@ -62,7 +62,6 @@ definitions:
         type: "integer"
         format: "int32"
         description: "帐号 Id"
-        readOnly: true
       name:
         type: "string"
         description: "登录帐号名"

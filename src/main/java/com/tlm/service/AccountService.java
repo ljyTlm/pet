@@ -1,5 +1,9 @@
 package com.tlm.service;
 
+import com.swagger.model.TUser;
+import com.tlm.bean.User;
+import com.tlm.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -8,4 +12,18 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class AccountService {
+
+  @Autowired
+  UserRepository userRepository;
+
+  public TUser addUser(TUser tUser) {
+    User userNew = new User();
+    userNew.setName(tUser.getName());
+    userNew.setPassword(tUser.getPassword());
+    userNew.setSource(0);
+    userNew.setTypeId(0);
+    User user = userRepository.save(userNew);
+    tUser.setId(user.getId());
+    return tUser;
+  }
 }

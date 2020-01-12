@@ -10,6 +10,8 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import org.apache.logging.log4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,6 +39,7 @@ public class AccountController {
       @ApiResponse(code = 200, message = "添加成功", response = TUser.class) })
   @PostMapping("/register")
   public TUser addUser(@ApiParam(value = "要添加的用户" ,required=true )  @Valid @RequestBody TUser tUser) {
-    return new TUser();
+    System.out.println(tUser);
+    return accountService.addUser(tUser);
   }
 }
